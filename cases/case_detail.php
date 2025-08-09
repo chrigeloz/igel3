@@ -47,7 +47,7 @@ $nextId = $activeIds[$currentIndex + 1] ?? null;
         <?php if ($nextId): ?>
             <button onclick="window.location.href='case_detail.php?animal_id=<?= $nextId ?>'">Next &rarr;</button>
         <?php endif; ?>
-    
+
     </div>
 
 
@@ -90,6 +90,10 @@ $nextId = $activeIds[$currentIndex + 1] ?? null;
     </p>
 
     <table>
+        <tr>
+            <th>ID</th>
+            <td><?= htmlspecialchars($animalId) ?></td>
+        </tr>
         <tr>
             <th>Name</th>
             <td><?= htmlspecialchars($animal['name']) ?></td>
@@ -134,33 +138,33 @@ $nextId = $activeIds[$currentIndex + 1] ?? null;
     </p>
 
     <?php if (count($events)): ?>
-    <table>
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th>Time</th>
-                <th>Weight (if any)</th>
-                <th>Comments</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($events as $event): ?>
+        <table>
+            <thead>
                 <tr>
-                    <td><?= htmlspecialchars($event['event_date']) ?></td>
-                    <td><?= htmlspecialchars($event['event_time']) ?></td>
-                    <td><?= htmlspecialchars($event['weight']) ?></td>
-                    <td><?= htmlspecialchars($event['comments']) ?></td>
-                    <td>
-                        <a href="edit_event.php?id=<?= $event['id'] ?>">✏️ Edit</a>
-                    </td>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Weight (if any)</th>
+                    <th>Comments</th>
+                    <th>Action</th>
                 </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
-<?php else: ?>
-    <p>No events recorded.</p>
-<?php endif; ?>
+            </thead>
+            <tbody>
+                <?php foreach ($events as $event): ?>
+                    <tr>
+                        <td><?= htmlspecialchars($event['event_date']) ?></td>
+                        <td><?= htmlspecialchars($event['event_time']) ?></td>
+                        <td><?= htmlspecialchars($event['weight']) ?></td>
+                        <td><?= htmlspecialchars($event['comments']) ?></td>
+                        <td>
+                            <a href="edit_event.php?id=<?= $event['id'] ?>">Edit</a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    <?php else: ?>
+        <p>No events recorded.</p>
+    <?php endif; ?>
 
 
 

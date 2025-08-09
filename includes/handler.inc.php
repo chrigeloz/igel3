@@ -23,7 +23,6 @@ if (!array_key_exists($table, $fieldMaps)) {
 $fields = $fieldMaps[$table];
 $data = [];
 foreach ($fields as $field) {
-    // Collect posted data or null if missing
     $data[$field] = $_POST[$field] ?? null;
 }
 
@@ -37,26 +36,42 @@ foreach ($dateFields as $dateField) {
 
 try {
     if ($action === 'edit' && $id) {
-        // Build update query string with placeholders
         $setClause = implode(', ', array_map(fn($f) => "$f = ?", $fields));
         $sql = "UPDATE $table SET $setClause WHERE id = ?";
         $stmt = $pdo->prepare($sql);
-        // Execute update with data values plus id for WHERE clause
         $stmt->execute([...array_values($data), $id]);
         header('Location: ../index.php');
         exit;
     } else {
-        // Build insert query string with placeholders
+        // 🔍 Check for existing finder BEFORE inserting
+        if ($table === 'finders') {
+            $checkSql = "SELECT id FROM finders WHERE firstname = ? AND lastname = ? AND phone = ?";
+            $checkStmt = $pdo->prepare($checkSql);
+            $checkStmt->execute([$data['firstname'], $data['lastname'], $data['phone']]);
+            $existing = $checkStmt->fetch(PDO::FETCH_ASSOC);
+
+            if ($existing) {
+                // Redirect with existing ID
+                header("Location: ../cases/new_case_step2_animal.php?finder_id=" . $existing['id']);
+                exit;
+            }
+        }
+
+        // Proceed with insert if not a duplicate
         $columns = implode(', ', $fields);
         $placeholders = implode(', ', array_fill(0, count($fields), '?'));
         $sql = "INSERT INTO $table ($columns) VALUES ($placeholders)";
         $stmt = $pdo->prepare($sql);
         $stmt->execute(array_values($data));
 
-        // If inserting a finder, redirect with new finder_id to continue workflow
         if ($table === 'finders') {
             $lastId = $pdo->lastInsertId();
             header("Location: ../cases/new_case_step2_animal.php?finder_id=$lastId");
+        } else if ($table === 'animals') {
+            header('Location: ../cases/list_active.php');
+        } else if ($table === 'events') {
+            header("Location: ../cases/case_detail.php?animal_id=" . $data['animal_id']);
+
         } else {
             header('Location: ../index.php');
         }
@@ -65,6 +80,5 @@ try {
     }
 
 } catch (PDOException $e) {
-    // Log or display database errors for debugging (adjust for production)
     die("Database error: " . $e->getMessage());
 }

@@ -9,6 +9,7 @@
   <ul>
     <li><a href="cases/list_active.php">🔍 View Active Cases</a></li>
     <li><a href="cases/new_case_step1_finder.php">➕ Add New Case</a></li>
+    <li><a href="cases/list_archived.php">🔍 View Archived Cases</a></li>
   </ul>
 </body>
 </html>

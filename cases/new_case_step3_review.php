@@ -6,6 +6,9 @@ $animal = getAnimal($pdo, $animalId);
 $finder = getFinder($pdo, $animal['finder_id']);
 $events = getEvents($pdo, $animalId);
 ?>
+
+<link rel="stylesheet" href="../styles.css">
+
 <h1>Review Case</h1>
 <h2>Finder</h2>
 <p><?= htmlspecialchars($finder['firstname'] . ' ' . $finder['lastname']) ?></p>
