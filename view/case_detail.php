@@ -35,7 +35,7 @@ $nextId = $activeIds[$currentIndex + 1] ?? null;
 
 <div>
 
-    <button onclick="window.location.href='list_active.php'">← Back to Active Cases</button>
+    <button onclick="window.location.href='index.php'">← Back to Active Cases</button>
     <?php if ($prevId): ?>
         <button onclick="window.location.href='case_detail.php?animal_id=<?= $prevId ?>'">&larr; Previous</button>
     <?php endif; ?>
@@ -48,10 +48,7 @@ $nextId = $activeIds[$currentIndex + 1] ?? null;
 <!-- Finder Info -->
 <h2>Finder</h2>
 
-<!-- Add Edit Finder button -->
-<p>
-    <button onclick="window.location.href='edit_finder.php?id=<?= $finder['id'] ?>'">✏️ Edit Finder</button>
-</p>
+
 
 <table>
     <tr>
@@ -67,18 +64,9 @@ $nextId = $activeIds[$currentIndex + 1] ?? null;
         <td><?= htmlspecialchars($finder['email']) ?></td>
     </tr>
     <tr>
-
-	<th>Address</th>
-<td>
-  <?= htmlspecialchars(
-        implode(', ', array_filter([
-            $finder['street'] ?? '',
-            trim(($finder['postcode'] ?? '') . ' ' . ($finder['city'] ?? '')),
-            $finder['state'] ?? ''
-        ]))
-    ) ?>
-</td>
-
+        <th>Address</th>
+        <td><?= htmlspecialchars($finder['street'] . ', ' . $finder['postcode'] . ' ' . $finder['city'] . ', ' . $finder['state']) ?>
+        </td>
     </tr>
     <tr>
         <th>Notes</th>
@@ -88,9 +76,7 @@ $nextId = $activeIds[$currentIndex + 1] ?? null;
 
 <!-- Animal Info -->
 <h2>Animal</h2>
-<p>
-    <button onclick="window.location.href='edit_animal.php?id=<?= $animal['id'] ?>'">✏️ Edit Animal</button>
-</p>
+
 
 <table>
     <tr hidden>
@@ -145,10 +131,11 @@ $nextId = $activeIds[$currentIndex + 1] ?? null;
 <h2>Events</h2>
 
 <!-- Action Buttons -->
+<!--
 <p>
     <button onclick="window.location.href='add_event.php?animal_id=<?= $animalId ?>'">➕ Add Event</button>
 </p>
-
+    -->
 <?php if (count($events)): ?>
     <table>
         <thead>
@@ -158,7 +145,7 @@ $nextId = $activeIds[$currentIndex + 1] ?? null;
                 <th>Weight (if any)</th>
                 <th>Comments</th>
                 <th>Status</th>
-                <th>Action</th>
+                
             </tr>
         </thead>
         <tbody>
@@ -191,7 +178,7 @@ $nextId = $activeIds[$currentIndex + 1] ?? null;
 
                     </td>
                     <td><?= htmlspecialchars($event['reason_release'] ?? '') ?></td>
-                    <td><a href="edit_event.php?id=<?= $event['id'] ?>">Edit</a></td>
+                    
 
                 </tr>
             <?php endforeach; ?>

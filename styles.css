@@ -34,7 +34,7 @@ form>div {
     border: 1px solid #ccc;
     border-radius: 8px;
     padding: 1.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 0.5rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
@@ -43,10 +43,14 @@ form>div h2 {
     margin-bottom: 1rem;
 }
 
+
 /* Labels and inputs */
 label {
     display: block;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.00rem;
+    font-size: 0.75rem;
+    font-weight: bold;
+ 
 }
 
 input[type="text"],
@@ -54,6 +58,8 @@ input[type="email"],
 input[type="date"],
 input[type="time"],
 input[type="number"],
+input[type="tel"],
+input[type="textarea"],
 select,
 textarea {
     width: 100%;
@@ -134,21 +140,27 @@ td {
 th {
     background-color: #f4f4f4;
     text-align: left;
-    width: 25%
+    width: auto;
 }
 
-li {
-    display: inline-block; /* shrink to fit content */
-    list-style-type: none;
-    padding: 20px;
-    border: 1px solid #589bff;
+th:nth-child(1),
+td:nth-child(1) { width: 20%; }
+
+
+
+li:not(.meds) {
+    list-style-type: none;  /* removes bullet points */
+    display: block;
+    padding: 15px;
+    border: 1px solid #abcbfa;
     border-radius: 10px;
     margin-bottom: 1rem;
     font-size: 1.25em;
     font-family: Arial, sans-serif;
     color: #000;
-    background-color: #589bff;
+    background-color: #abcbfa;
 }
+
 
 
 /* Override link styles inside li */
@@ -158,12 +170,41 @@ li a {
     font-weight: normal;
 }
 
+
 li:hover {
     background-color: #589bff;
 }
+
+
 
 ul {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
+    list-style: none;  /* removes bullets globally */
+    padding: 0;
+    margin: 0;
+}
+
+
+.meds {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    background-color: rgb(214, 213, 183);
+    color: rgb(0, 0, 0);
+    border: none;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    border-radius: 10px;
+}
+
+.topLine {
+    text-align: center;
+    font-size: 1.75em;
+    color: #000000;
+    margin-top: 2rem;
+    text-align: left;
+    padding: 10px;
+    background-color:  rgb(214, 213, 183);
 }

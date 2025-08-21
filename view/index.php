@@ -45,6 +45,5 @@ $animals = $stmt->fetchAll(PDO::FETCH_ASSOC);
   </tbody>
 </table>
 
-<button onclick="window.location.href='../index.php'">← Back to Dashboard</button>
 
 <?php include '../includes/footer.inc.php'; ?>
