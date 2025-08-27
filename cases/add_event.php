@@ -4,7 +4,7 @@
 $animalId = $_GET['animal_id'] ?? null;
 ?>
 
-<h1>Add Event</h1>
+<h1>Add Event <button type="submit">Add Event</button>  <button onclick="location.href='case_detail.php?animal_id=<?= $animalId ?>'">Cancel</button></h1>
 <form method="POST" action="../includes/event_handler.inc.php">
   <input type="hidden" name="table" value="events">
   <input type="hidden" name="action" value="add">

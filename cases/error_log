@@ -57,3 +57,4 @@ Stack trace:
 #0 /home/chribhtl/public_html/igelstation.online/cases/list_archived.php(20): PDO->query()
 #1 {main}
   thrown in /home/chribhtl/public_html/igelstation.online/cases/list_archived.php on line 20
+[27-Aug-2025 07:02:58 UTC] PHP Parse error:  Unmatched ')' in /home/chribhtl/public_html/igelstation.online/cases/case_detail.php on line 50

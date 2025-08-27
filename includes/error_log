@@ -1,0 +1,32 @@
+[26-Aug-2025 04:30:56 UTC] PHP Warning:  Undefined variable $pdo in /home/chribhtl/public_html/igelstation.online/includes/bug_report_handler.php on line 14
+[26-Aug-2025 04:30:56 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/chribhtl/public_html/igelstation.online/includes/bug_report_handler.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/chribhtl/public_html/igelstation.online/includes/bug_report_handler.php on line 14
+[26-Aug-2025 04:30:59 UTC] PHP Warning:  Undefined variable $pdo in /home/chribhtl/public_html/igelstation.online/includes/bug_report_handler.php on line 14
+[26-Aug-2025 04:30:59 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/chribhtl/public_html/igelstation.online/includes/bug_report_handler.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/chribhtl/public_html/igelstation.online/includes/bug_report_handler.php on line 14
+[26-Aug-2025 04:31:10 UTC] PHP Warning:  Undefined variable $pdo in /home/chribhtl/public_html/igelstation.online/includes/bug_report_handler.php on line 14
+[26-Aug-2025 04:31:10 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/chribhtl/public_html/igelstation.online/includes/bug_report_handler.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/chribhtl/public_html/igelstation.online/includes/bug_report_handler.php on line 14
+[26-Aug-2025 04:32:26 UTC] PHP Warning:  Undefined variable $pdo in /home/chribhtl/public_html/igelstation.online/includes/bug_report_handler.php on line 19
+[26-Aug-2025 04:32:26 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/chribhtl/public_html/igelstation.online/includes/bug_report_handler.php:19
+Stack trace:
+#0 {main}
+  thrown in /home/chribhtl/public_html/igelstation.online/includes/bug_report_handler.php on line 19
+[26-Aug-2025 04:46:34 UTC] PHP Warning:  require(includes/config.php): Failed to open stream: No such file or directory in /home/chribhtl/public_html/igelstation.online/includes/delete_bug_reports.php on line 2
+[26-Aug-2025 04:46:34 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'includes/config.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/chribhtl/public_html/igelstation.online/includes/delete_bug_reports.php:2
+Stack trace:
+#0 {main}
+  thrown in /home/chribhtl/public_html/igelstation.online/includes/delete_bug_reports.php on line 2
+[26-Aug-2025 04:47:28 UTC] PHP Warning:  require(includes/config.php): Failed to open stream: No such file or directory in /home/chribhtl/public_html/igelstation.online/includes/delete_bug_reports.php on line 7
+[26-Aug-2025 04:47:28 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'includes/config.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/chribhtl/public_html/igelstation.online/includes/delete_bug_reports.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/chribhtl/public_html/igelstation.online/includes/delete_bug_reports.php on line 7
+[26-Aug-2025 04:48:58 UTC] PHP Parse error:  syntax error, unexpected token "__DIR__" in /home/chribhtl/public_html/igelstation.online/includes/delete_bug_reports.php on line 7
+[26-Aug-2025 04:49:08 UTC] PHP Parse error:  syntax error, unexpected token "__DIR__" in /home/chribhtl/public_html/igelstation.online/includes/delete_bug_reports.php on line 7

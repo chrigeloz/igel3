@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Wildlife Rescue Dashboard</title>
+  <title>Igel Station Dashboard</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1><img src="img/igel.png" style="width: auto; height: 50px;">Allison's Igel Station</h1>
+  <h1><a href="bug_reports.php"><img src="img/igel.png" style="width: auto; height: 50px;"></a> Allison's Igel Station</h1>
   <h2>Case Management</h2>
   <ul>
     <li><a href="cases/list_active.php">🔍 View Active Cases</a></li>
