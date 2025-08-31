@@ -20,7 +20,7 @@ if (!$event) {
 }
 ?>
 
-    <h1>Edit Event</h1>
+    <h1>Edit Event  <button type="submit">Save Changes</button>  <button onclick="window.location.href='javascript:history.back()'">Back</button></h1>
 
     <form method="POST" action="../includes/event_handler.inc.php">
         <input type="hidden" name="table" value="events">

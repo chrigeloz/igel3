@@ -8,7 +8,7 @@ $medications = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $msg = $_GET['msg'] ?? '';
 ?>
 
-    <h1>Medications Inventory</h1>
+    <h1>Medication Inventory</h1>
 
     <?php if ($msg): ?>
         <p class="message">

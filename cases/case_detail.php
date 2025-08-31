@@ -29,28 +29,53 @@ $currentIndex = array_search($animalId, $activeIds);
 $prevId = $activeIds[$currentIndex - 1] ?? null;
 $nextId = $activeIds[$currentIndex + 1] ?? null;
 ?>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+  // hide sections initially
+  $(".finderDiv, .animalDiv").hide();
+  $(".eventsDiv").show();
+
+  // generic toggle handler
+  $("#toggleFinder").click(function() {
+    $(".finderDiv").toggle();
+    $(this).text($(".finderDiv").is(":visible") ? "Hide" : "Show");
+  });
+
+  $("#toggleAnimal").click(function() {
+    $(".animalDiv").toggle();
+    $(this).text($(".animalDiv").is(":visible") ? "Hide" : "Show");
+  });
+});
+</script>
+
+
 <!-- Back to Active Cases -->
 
 <h1>Case Details</h1>
 
 <div>
 
-    <button onclick="window.location.href='list_active.php'">← Back to Active Cases</button>
+    <button onclick="window.location.href='list_active.php'">Back to Active Cases</button>
     <?php if ($prevId): ?>
-        <button onclick="window.location.href='case_detail.php?animal_id=<?= $prevId ?>'">&larr; Previous</button>
+        <button onclick="window.location.href='case_detail.php?animal_id=<?= $prevId ?>'">Previous Case</button>
     <?php endif; ?>
     <?php if ($nextId): ?>
-        <button onclick="window.location.href='case_detail.php?animal_id=<?= $nextId ?>'">Next &rarr;</button>
+        <button onclick="window.location.href='case_detail.php?animal_id=<?= $nextId ?>'">Next Case</button>
     <?php endif; ?>
 
 </div>
 
 <!-- Finder Info -->
-<h2>Finder</h2>
+
+<h2><button id="toggleFinder">Show</button>  Finder: <?= htmlspecialchars($finder['lastname'] . ', ' . $finder['firstname'] . ', ' . $finder['phone'])?></h2>
+
+<div class="finderDiv" >
 
 <!-- Add Edit Finder button -->
 <p>
-    <button onclick="window.location.href='edit_finder.php?id=<?= $finder['id'] ?>'">✏️ Edit Finder</button>
+    <button onclick="window.location.href='edit_finder.php?id=<?= $finder['id'] ?>'">Edit Finder</button>
 </p>
 
 <table>
@@ -86,10 +111,18 @@ $nextId = $activeIds[$currentIndex + 1] ?? null;
     </tr>
 </table>
 
+</div>
+
+
+
 <!-- Animal Info -->
-<h2>Animal</h2>
+<h2><button id="toggleAnimal">Show</button>  Animal: <?= htmlspecialchars($animal['case_code']) ?></h2>
+
+
+<div class="animalDiv">
+
 <p>
-    <button onclick="window.location.href='edit_animal.php?id=<?= $animal['id'] ?>'">✏️ Edit Animal</button>
+    <button onclick="window.location.href='edit_animal.php?id=<?= $animal['id'] ?>'">Edit Animal</button>
 </p>
 
 <table>
@@ -140,13 +173,16 @@ $nextId = $activeIds[$currentIndex + 1] ?? null;
     </tr>
 </table>
 
+</div>
+
 <!-- Event Info -->
 
 <h2>Events</h2>
 
 <!-- Action Buttons -->
+<div class="eventsDiv">
 <p>
-    <button onclick="window.location.href='add_event.php?animal_id=<?= $animalId ?>'">➕ Add Event</button>
+    <button onclick="window.location.href='add_event.php?animal_id=<?= $animalId ?>'">Add Event</button>
 </p>
 
 <?php if (count($events)): ?>
@@ -197,8 +233,12 @@ $nextId = $activeIds[$currentIndex + 1] ?? null;
             <?php endforeach; ?>
         </tbody>
     </table>
+
+</div>
+
 <?php else: ?>
     <p>No events recorded.</p>
 <?php endif; ?>
+
 
 <?php include '../includes/footer.inc.php'; ?>
